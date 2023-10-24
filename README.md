@@ -25,6 +25,7 @@ This web app is a Kanban-style task management tool designed to help you keep tr
 - [Tailwind-css](https://tailwindcss.com/) - A utility-first CSS framework.
 - [React-Router](https://reactrouter.com/en/main) - A tool that allows you to create routes, navigation, and page-switching in your React web applications.
 - [Firebase](https://firebase.google.com/) - A cloud platform offering various backend services for web and mobile applications.
+- [Framer-Motion](https://www.framer.com/motion/) - A JavaScript animation library.
 - [Vite](https://vitejs.dev/) - A tool that is used for building fast and optimized web applications. 
 - [Cypress](https://www.cypress.io/) - With Cypress, you can easily create tests for your modern web applications and debug them visually. 
 
