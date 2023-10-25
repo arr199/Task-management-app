@@ -2,7 +2,7 @@
 
 This web app is a Kanban-style task management tool designed to help you keep track of your work.
 
-<img width="50%" src="./public/kanban.png" width="128"/>
+<img width="50%" src="./public/kanban.png" />
 
 ## Features
 
