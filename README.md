@@ -4,6 +4,8 @@ This web app is a Kanban-style task management tool designed to help you keep tr
 
 <img width="50%" src="./public/kanban.png" />
 
+### 🌐 Website : https://kanbannapp.netlify.app/  ###
+
 ## Features
 
 - Users can log in and ensure the security of their data while managing tasks and boards 
@@ -16,7 +18,7 @@ This web app is a Kanban-style task management tool designed to help you keep tr
 - Drag and drop tasks to change their status and reorder them in a column.
 - Changes are saved even after refreshing the browser, making it convenient for tracking tasks over time.
 
-### Website : https://kanbannapp.netlify.app/  ###
+
 
 ## Built with
 
