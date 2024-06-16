@@ -48,7 +48,7 @@ export function Login (): JSX.Element {
           <MdEmail className="absolute top-3 left-4 w-5 h-4 text-slate"></MdEmail>
           <input data-id='email-input' value={formData.email} onChange={(e) => { setFormData({ ...formData, email: e.target.value }) }}
             className=" shadow-[0px_0px_10px_2px_#5a52c7]
-                    w-full py-2 border-2  border-[#666565]  text-[14px] bg-transparent px-8 text-center text-white
+                    w-full py-2 border-2   border-[#666565]  text-[14px] bg-transparent px-8 text-center text-white
                     rounded-r-full rounded-l-full hover:border-[#5a52c7] focus:bg-[#302d2d] hover:bg-[#302d2d]   focus:border-[#5a52c7]  outline-none"
             placeholder="Email" type='email'></input>
         </div>
@@ -62,6 +62,7 @@ export function Login (): JSX.Element {
             placeholder="Password" type='password'></input>
         </div>
         {/* LOGIN */}
+        
         <button data-id='login-button' disabled={formData.email.replace(/\s+/g, '') === '' || formData.password.replace(/\s+/g, '') === ''}
           className='mt-2 disabled:bg-[#8e8cd8]  active:scale-95   shadow-[0px_0px_6px_2px_#5a52c7] bg-[#635FC7] font-bold hover:bg-[#908eca]   w-full self-center gap-4 py-2  text-[14px] px-8 text-center text-white
                     rounded-r-full rounded-l-full duration-300 transition-colors '>Login</button>

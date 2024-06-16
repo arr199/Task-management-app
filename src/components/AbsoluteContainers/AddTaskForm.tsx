@@ -101,7 +101,7 @@ export function AddTaskForm ({ showNewTask, setShowNewTask }: AddTaskFormProps):
           <label>Subtasks</label>
           {formData.subtasks.map((subtask, index) =>
             <div className='flex items-center gap-2 w-full relative' key={subtask.id}>
-
+              
               <input data-id="add-task-subtask"
                 style={{ border: showValidationErrors(formData.subtasks[index].title) !== '' ? '1px solid red' : '' }}
                 value={formData.subtasks[index].title} onChange={(e) => { handleSubtaskChange(e, index) }}
