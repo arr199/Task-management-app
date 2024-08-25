@@ -1,25 +1,25 @@
-import type React from 'react'
-import { useContext } from 'react'
-import { GlobalContext } from '../components/Pages/HostLayout'
+import type React from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../components/pages/HostLayout";
 
 interface ContextHook {
-  boards: Board[]
-  setBoards: React.Dispatch<React.SetStateAction<Board[]>>
-  setShowNewBoardForm: React.Dispatch<React.SetStateAction<boolean>>
-  setShowNewColumnForm: React.Dispatch<React.SetStateAction<boolean>>
-  darkMode: string
-  setDarkMode: React.Dispatch<React.SetStateAction<string>>
-  showLeftNavbar: boolean
-  setShowLeftNavbar: React.Dispatch<React.SetStateAction<boolean>>
-  openDeleteBoardPopUp: boolean
-  setOpenDeleteBoardPopUp: React.Dispatch<React.SetStateAction<boolean>>
-  showEditTaskForm: boolean
-  setShowEditTaskForm: React.Dispatch<React.SetStateAction<boolean>>
-  showTaskForm: boolean
-  setShowTaskForm: React.Dispatch<React.SetStateAction<boolean>>
+  boards: Board[];
+  setBoards: React.Dispatch<React.SetStateAction<Board[]>>;
+  setShowNewBoardForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowNewColumnForm: React.Dispatch<React.SetStateAction<boolean>>;
+  darkMode: string;
+  setDarkMode: React.Dispatch<React.SetStateAction<string>>;
+  showLeftNavbar: boolean;
+  setShowLeftNavbar: React.Dispatch<React.SetStateAction<boolean>>;
+  openDeleteBoardPopUp: boolean;
+  setOpenDeleteBoardPopUp: React.Dispatch<React.SetStateAction<boolean>>;
+  showEditTaskForm: boolean;
+  setShowEditTaskForm: React.Dispatch<React.SetStateAction<boolean>>;
+  showTaskForm: boolean;
+  setShowTaskForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function useGetBoards (): ContextHook {
+export function useGetBoards(): ContextHook {
   const {
     boards,
     setBoards,
@@ -34,8 +34,8 @@ export function useGetBoards (): ContextHook {
     showEditTaskForm,
     setShowEditTaskForm,
     showTaskForm,
-    setShowTaskForm
-  } = useContext(GlobalContext)
+    setShowTaskForm,
+  } = useContext(GlobalContext);
 
   return {
     boards,
@@ -51,6 +51,6 @@ export function useGetBoards (): ContextHook {
     showEditTaskForm,
     setShowEditTaskForm,
     showTaskForm,
-    setShowTaskForm
-  }
+    setShowTaskForm,
+  };
 }
