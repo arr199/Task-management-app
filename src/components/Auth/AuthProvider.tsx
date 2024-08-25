@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { useFirebase } from '../../Utils/functions'
+import { useFirebase } from '../../utils/functions'
 import { onAuthStateChanged } from 'firebase/auth'
 
 export const AuthContext = createContext<AuthContextType>({
@@ -21,11 +21,5 @@ export function AuthProvider ({ children }: AuthProviderProps): JSX.Element {
     })
   }, [])
 
-  return (
-
-    <AuthContext.Provider value={{ user, setUser }}>
-      {children}
-    </AuthContext.Provider>
-
-  )
+  return <AuthContext.Provider value={{ user, setUser }}>{children}</AuthContext.Provider>
 }

@@ -1,11 +1,11 @@
 import { GoDotFill } from "react-icons/go";
-import { Task } from "../Task";
-import { useGetBoards } from "../../Utils/hooks";
+import { Task } from "../shared/Task";
+import { useGetBoards } from "../../utils/hooks";
 import { useParams } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { nanoid } from "nanoid";
 import { setDoc, doc } from "firebase/firestore";
-import { mainPointerEvents, useFirebase } from "../../Utils/functions";
+import { mainPointerEvents, useFirebase } from "../../utils/functions";
 import { AuthContext } from "../auth/AuthProvider";
 
 export function Board(): JSX.Element {
@@ -70,7 +70,7 @@ export function Board(): JSX.Element {
       setDraggedElement({ column: null, task: null, targetColumn: null, targetTask: null });
       setBoards(newBoard);
       setDoc(doc(db, "users", user as string), { boards: newBoard }).catch((err) => {
-        console.log("ERORR DRAGGING TASK  : ", err);
+        console.log("ERROR DRAGGING TASK  : ", err);
       });
       return;
     }
@@ -87,7 +87,7 @@ export function Board(): JSX.Element {
     setDraggedElement({ column: null, task: null, targetColumn: null, targetTask: null });
     setBoards(newBoard);
     setDoc(doc(db, "users", user as string), { boards: newBoard }).catch((err) => {
-      console.log("ERORR DRAGGING TASK  : ", err);
+      console.log("ERROR DRAGGING TASK  : ", err);
     });
   }
 
@@ -115,7 +115,7 @@ export function Board(): JSX.Element {
         } 
           ${darkMode === "light" ? "bg-[#F4F7FD]" : ""} `}
       >
-        {/* columns */}
+        {/* COLUMNS */}
         {boards?.[Number(board)]?.columns?.map((column, columnIndex) => (
           <div
             data-id={column.id}

@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
-import { useFirebase, mainPointerEvents, removeOpacityClass } from "../../Utils/functions";
-import { useGetBoards } from "../../Utils/hooks";
-import ani from "../../assets/motions";
+import { useFirebase, mainPointerEvents, removeOpacityClass } from "../../utils/functions";
+import { useGetBoards } from "../../utils/hooks";
+import ani from "../../utils/motions";
 
 export function DeleteBoardForm(): JSX.Element {
   const { user } = useContext(AuthContext);

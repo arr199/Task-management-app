@@ -8,12 +8,12 @@ import {
   removeOpacityClass,
   showValidationErrors,
   useFirebase,
-} from "../../Utils/functions";
+} from "../../utils/functions";
 import { AuthContext } from "../auth/AuthProvider";
 import { doc, setDoc } from "firebase/firestore";
-import { useGetBoards } from "../../Utils/hooks";
+import { useGetBoards } from "../../utils/hooks";
 import { motion } from "framer-motion";
-import ani from "../../assets/motions";
+import ani from "../../utils/motions";
 
 export function EditBoardForm({ boards, setBoards, setShowEditBoardForm }: EditBoardFormProps): JSX.Element {
   const { board } = useParams();

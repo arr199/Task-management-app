@@ -1,14 +1,14 @@
 import { RxCross1 } from "react-icons/rx";
 import React, { useContext, useEffect, useState } from "react";
-import { EditTaskDropDown } from "../EditTaskDropDown";
-import { useGetBoards } from "../../Utils/hooks";
+import { EditTaskDropDown } from "../shared/EditTaskDropDown";
+import { useGetBoards } from "../../utils/hooks";
 import { useParams, useSearchParams } from "react-router-dom";
 import { nanoid } from "nanoid";
-import { mainPointerEvents, removeOpacityClass, showValidationErrors, useFirebase } from "../../Utils/functions";
+import { mainPointerEvents, removeOpacityClass, showValidationErrors, useFirebase } from "../../utils/functions";
 import { doc, setDoc } from "firebase/firestore";
 import { AuthContext } from "../auth/AuthProvider";
 import { motion } from "framer-motion";
-import ani from "../../assets/motions";
+import ani from "../../utils/motions";
 
 export function EditTaskForm(): JSX.Element {
   const [params] = useSearchParams();

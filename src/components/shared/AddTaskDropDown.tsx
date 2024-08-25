@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useGetBoards } from "../Utils/hooks";
+import { useGetBoards } from "../../utils/hooks";
 import { useLocation, useSearchParams } from "react-router-dom";
-import ani from "../assets/motions";
+import ani from "../../utils/motions";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function AddTaskDropDown({ formData, setFormData }: CurrentStatusDropDownProps): JSX.Element {

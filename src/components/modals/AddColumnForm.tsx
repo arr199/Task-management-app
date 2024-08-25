@@ -7,12 +7,12 @@ import {
   removeOpacityClass,
   showValidationErrors,
   useFirebase,
-} from "../../Utils/functions";
+} from "../../utils/functions";
 import { AuthContext } from "../auth/AuthProvider";
 import { setDoc, doc } from "firebase/firestore";
-import { useGetBoards } from "../../Utils/hooks";
+import { useGetBoards } from "../../utils/hooks";
 import { motion } from "framer-motion";
-import ani from "../../assets/motions";
+import ani from "../../utils/motions";
 
 export function AddColumnForm({ boards, setBoards, setShowNewColumnForm }: AddColumnFormProps): JSX.Element {
   const [formData, setFormData] = useState<Column>({ name: "", id: "", tasks: [], color: "" });

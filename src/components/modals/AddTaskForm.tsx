@@ -1,14 +1,14 @@
 import React, { type ChangeEvent, useEffect, useState, useContext } from "react";
 import { RxCross1 } from "react-icons/rx";
-import { AddTaskDropDown } from "../AddTaskDropDown";
-import { useGetBoards } from "../../Utils/hooks";
+import { AddTaskDropDown } from "../shared/AddTaskDropDown";
+import { useGetBoards } from "../../utils/hooks";
 import { nanoid } from "nanoid";
 import { useParams } from "react-router-dom";
-import { removeOpacityClass, showValidationErrors, useFirebase } from "../../Utils/functions";
+import { removeOpacityClass, showValidationErrors, useFirebase } from "../../utils/functions";
 import { AuthContext } from "../auth/AuthProvider";
 import { doc, setDoc } from "firebase/firestore";
 import { motion } from "framer-motion";
-import ani from "../../assets/motions";
+import animations from "../../utils/motions";
 
 export function AddTaskForm({ showNewTask, setShowNewTask }: AddTaskFormProps): JSX.Element {
   const { boards, setBoards, darkMode } = useGetBoards();
@@ -63,7 +63,6 @@ export function AddTaskForm({ showNewTask, setShowNewTask }: AddTaskFormProps): 
       console.log("ERROR ADDING NEW TASK : ", err);
     });
     setShowNewTask(false);
-    //  REMOVE OPACITY CLASS
     removeOpacityClass("#add-task");
   }
 
@@ -75,13 +74,23 @@ export function AddTaskForm({ showNewTask, setShowNewTask }: AddTaskFormProps): 
     setFormData(newFormData);
   }
 
+  // VALIDATE FIELDS
+  function validateFields() {
+    return (
+      formData.title.replace(/\s+/g, "") === "" ||
+      formData.description.replace(/\s+/g, "") === "" ||
+      formData.subtasks.some((e) => e.title.replace(/\s+/g, "") === "") ||
+      formData.subtasks.length <= 0
+    );
+  }
+
   return (
     <motion.form
       onSubmit={handleCreateTask}
       id="add-task"
       className={`task gap-3 flex flex-col absolute inset-0 m-auto w-[90vw]  sm:w-max  sm:min-w-[450px] h-max min-h-[320px] px-5 py-8 rounded 
     ${darkMode === "light" ? " bg-[#ffffff] text-black " : "bg-[#2B2C37] text-white "}`}
-      {...ani.scaleAnimationCenterExitCenter()}
+      {...animations.scaleAnimationCenterExitCenter()}
     >
       <h2 className="font-bold ">Add new task</h2>
       <div className="relative flex flex-col gap-1 text-[0.75rem] font-bold">
@@ -172,12 +181,7 @@ export function AddTaskForm({ showNewTask, setShowNewTask }: AddTaskFormProps): 
       </div>
       {/* CREATE TASK */}
       <button
-        disabled={
-          formData.title.replace(/\s+/g, "") === "" ||
-          formData.description.replace(/\s+/g, "") === "" ||
-          formData.subtasks.some((e) => e.title.replace(/\s+/g, "") === "") ||
-          formData.subtasks.length <= 0
-        }
+        disabled={validateFields()}
         className="disabled:bg-red-500 hover:bg-[#A8A4FF] font-bold bg-[#635FC7] text-white text-[13px] rounded-3xl p-2"
       >
         Create Task

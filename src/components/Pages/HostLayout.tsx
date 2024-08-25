@@ -1,16 +1,16 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Header } from "../payout/Header";
-import { LeftNavBar } from "../payout/LeftNavbar";
+import { Header } from "../layout/Header";
+import { LeftNavBar } from "../layout/LeftNavbar";
 import { AddBoardForm } from "../modals/AddBoardForm";
 import { AddTaskForm } from "../modals/AddTaskForm";
 import { EditBoardForm } from "../modals/EditBoardForm";
 import { AddColumnForm } from "../modals/AddColumnForm";
 import { AuthContext } from "../auth/AuthProvider";
 import { doc, getDoc } from "firebase/firestore";
-import { useFirebase } from "../../Utils/functions";
+import { useFirebase } from "../../utils/functions";
 import { AnimatePresence } from "framer-motion";
 import { DeleteBoardForm } from "../modals/DeleteBoardForm";
-import { Board } from "../payout/Board";
+import { Board } from "../layout/Board";
 import { EditTaskForm } from "../modals/EditTaskForm";
 import { TaskForm } from "../modals/TaskForm";
 
@@ -98,7 +98,7 @@ export function HostLayout(): JSX.Element {
             <Board></Board>
           </main>
         </section>
-        {/* ABSOLUTE CONTAINERS */}
+        {/* MODALS */}
         <AnimatePresence mode="wait">
           {showNewTask && <AddTaskForm showNewTask={showNewTask} setShowNewTask={setShowNewTask}></AddTaskForm>}
           {showNewBoardForm && (

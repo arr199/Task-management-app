@@ -3,19 +3,19 @@ import React, { useContext, useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 
-import { API } from "../../Utils/API";
+import { API } from "../../utils/API";
 import {
   getColor,
   mainPointerEvents,
   removeOpacityClass,
   showValidationErrors,
   useFirebase,
-} from "../../Utils/functions";
+} from "../../utils/functions";
 import { AuthContext } from "../auth/AuthProvider";
 import { doc, setDoc } from "firebase/firestore";
-import { useGetBoards } from "../../Utils/hooks";
+import { useGetBoards } from "../../utils/hooks";
 import { motion } from "framer-motion";
-import ani from "../../assets/motions";
+import ani from "../../utils/motions";
 
 export function AddBoardForm({ boards, setBoards, setShowNewBoardForm }: AddBoardFormProps): JSX.Element {
   const [formData, setFormData] = useState<Board>({ name: "", columns: API.INITIAL_BOARD_COLUMNS, id: "" });
@@ -35,10 +35,8 @@ export function AddBoardForm({ boards, setBoards, setShowNewBoardForm }: AddBoar
     setDoc(doc(db, "users", user as string), { boards: newBoards }).catch((err) => {
       console.log("ERROR ADDING BOARDS:", err);
     });
-    // SETTING MAIN POINTERS EVENTS TO AUTO
     mainPointerEvents("auto");
     navigate(`/${boards.length}`);
-    // REMOVE OPACITY CLASS
     removeOpacityClass("#add-board-form");
   }
 

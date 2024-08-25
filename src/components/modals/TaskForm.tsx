@@ -2,15 +2,14 @@ import { setDoc, doc } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { removeOpacityClass, mainPointerEvents, useFirebase } from "../../Utils/functions";
-import { EditTaskDropDown } from "../EditTaskDropDown";
-import { TaskCheckBox } from "../TaskCheckBox";
-import { useGetBoards } from "../../Utils/hooks";
+import { removeOpacityClass, mainPointerEvents, useFirebase } from "../../utils/functions";
+import { EditTaskDropDown } from "../shared/EditTaskDropDown";
+import { TaskCheckBox } from "../shared/TaskCheckBox";
+import { useGetBoards } from "../../utils/hooks";
 import { useParams, useSearchParams } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
-import ani from "../../assets/motions";
+import ani from "../../utils/motions";
 
-// A FORM CALLED WHEN CLICK ON A TASK
 export function TaskForm({ showTaskForm, setShowTaskForm }: TaskFormProps): JSX.Element {
   const [openTaskFormOptions, setOpenTaskFormOptions] = useState(false);
   const { setBoards, boards, setShowEditTaskForm, darkMode } = useGetBoards();
@@ -95,7 +94,7 @@ export function TaskForm({ showTaskForm, setShowTaskForm }: TaskFormProps): JSX.
     const newBoard = structuredClone(boards);
     // REMOVING THE TASK ON THE CURRENT COLUMN
     newBoard[Number(board)].columns[colum].tasks = newBoard[Number(board)].columns[colum].tasks.filter(
-      (task) => task.id !== formData.id
+      (task) => task.id !== formData.id,
     );
     // GETTING THE INDEX OF THE NEW COLUMN
     const newColumIndex = boards[Number(board)].columns.findIndex((e) => e.name === formData.status);

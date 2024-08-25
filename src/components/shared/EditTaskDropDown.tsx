@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { useGetBoards } from "../Utils/hooks";
+import { useGetBoards } from "../../utils/hooks";
 import { useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import ani from "../assets/motions";
+import ani from "../../utils/motions";
 
-export function EditTaskDropDown({
-  formData,
-  setFormData,
-}: TaskDropDown): JSX.Element {
+export function EditTaskDropDown({ formData, setFormData }: TaskDropDown): JSX.Element {
   const { boards, darkMode } = useGetBoards();
   const [isOpen, setIsOpen] = useState(false);
   const { board } = useParams();
@@ -23,9 +20,7 @@ export function EditTaskDropDown({
   return (
     <>
       <section
-        className={` cursor-pointer  font-bold relative ${
-          darkMode === "light" ? " text-black  " : " text-white "
-        }`}
+        className={` cursor-pointer  font-bold relative ${darkMode === "light" ? " text-black  " : " text-white "}`}
       >
         <input
           value={formData.status}
@@ -47,18 +42,8 @@ export function EditTaskDropDown({
               {boards?.[Number(board)]?.columns.map((column, index) => (
                 <motion.button
                   type="button"
-                  className={` ${
-                    darkMode === "light"
-                      ? "hover:text-black "
-                      : "hover:text-white"
-                  }  text-[#828FA3] 
-              ${
-                formData.status === column.name
-                  ? darkMode === "light"
-                    ? " text-black "
-                    : " text-white "
-                  : ""
-              }   `}
+                  className={` ${darkMode === "light" ? "hover:text-black " : "hover:text-white"}  text-[#828FA3] 
+              ${formData.status === column.name ? (darkMode === "light" ? " text-black " : " text-white ") : ""}   `}
                   onClick={handleSelect}
                   key={column.id}
                   {...ani.fadeAnimation(0.2 + index / 7)}

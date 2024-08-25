@@ -1,6 +1,6 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import { HostLayout } from "./components/pages/HostLayout";
-import { Board } from "./components/payout/Board";
+import { Board } from "./components/layout/Board";
 import { AuthProvider } from "./components/auth/AuthProvider";
 import { NonAuthUsers } from "./components/auth/NonAuthUsers";
 import { Login } from "./components/pages/Login";
@@ -26,8 +26,8 @@ export function Router(): JSX.Element {
         </Route>
         {/* PAGE NOT FOUND */}
         <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
-      </>
-    )
+      </>,
+    ),
   );
   return (
     <AuthProvider>
